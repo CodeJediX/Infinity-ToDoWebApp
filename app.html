@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnightTask - App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-shield-halved"></i> KnightTask
+            </div>
+            <div id="clock" class="clock-widget">--:--:--</div>
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Search tasks...">
+            </div>
+        </header>
+
+        <main class="main-grid">
+            <aside class="sidebar">
+                <section class="list-manager">
+                    <h2>My Lists</h2>
+                    <ul id="task-lists">
+                        </ul>
+                    <button id="new-list-btn" class="btn-sidebar">+ New List</button>
+                </section>
+                <section class="calendar-widget">
+                    <div id="calendar">
+                        </div>
+                </section>
+                <section class="conquered-log-widget">
+                    <h2>Conquered Log (Today)</h2>
+                    <ul id="conquered-log-list">
+                        </ul>
+                </section>
+                </aside>
+
+            <section class="task-display">
+                <div class="task-display-header">
+                   <h2 id="current-list-title">Personal Tasks</h2>
+                   <button id="smart-suggest-btn" class="btn-secondary" title="Suggest the most critical quest based on priority and due date.">
+                       <i class="fa-solid fa-wand-magic-sparkles"></i> Suggest Next Quest
+                   </button>
+                   <button id="add-task-btn" class="btn-primary-small">+ Add Task</button>
+                </div>
+                
+                <div class="progress-engine">
+                    <div class="progress-bar-container">
+                        <div id="progress-bar" class="progress-bar-fill"></div>
+                    </div>
+                    <span id="progress-text">0% Conquered</span>
+                </div>
+                <div id="task-form-container" class="hidden">
+                    <input type="text" id="task-title-input" placeholder="Task Title" required>
+                    <div class="task-meta">
+                        <div class="priority-selector">
+                            <span>Priority:</span>
+                            <input type="radio" id="low" name="priority" value="Low" checked><label for="low">Low</label>
+                            <input type="radio" id="medium" name="priority" value="Medium"><label for="medium">Medium</label>
+                            <input type="radio" id="high" name="priority" value="High"><label for="high">High</label>
+                        </div>
+                        <div class="due-date-selector">
+                            <label for="due-date-input">Due Date:</label>
+                            <input type="date" id="due-date-input">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button id="save-task-btn" class="btn-primary">Save Task</button>
+                        <button id="cancel-task-btn" class="btn-secondary">Cancel</button>
+                    </div>
+                </div>
+
+                <div id="task-list-container">
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="modal-backdrop" class="hidden">
+        <div id="modal-content">
+            <h3 id="modal-title">Modal Title</h3>
+            <p id="modal-text">Some text here...</p>
+            <input type="text" id="modal-input" class="hidden">
+            <div class="modal-actions">
+                <button id="modal-confirm-btn" class="btn-primary">Confirm</button>
+                <button id="modal-cancel-btn" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
