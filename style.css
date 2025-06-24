@@ -34,7 +34,7 @@ h1, h2, h3 {
     display: none !important;
 }
 
-/* --- PRELOADER --- */
+/* --- NEW: Preloader --- */
 #preloader {
     position: fixed;
     top: 0;
@@ -145,7 +145,7 @@ h1, h2, h3 {
     color: var(--primary-green);
 }
 
-/* --- APP PAGE (app.html) - LAPTOP INTERFACE --- */
+/* --- APP PAGE (app.html) --- */
 .app-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -285,19 +285,14 @@ h1, h2, h3 {
     border: 1px solid var(--border-color);
 }
 #calendar-header { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-main); margin-bottom: 0.5rem; }
-#calendar-header button { background: none; border: none;
-    color: var(--text-color); font-size: 1.2rem; cursor: pointer; }
+#calendar-header button { background: none; border: none; color: var(--text-color); font-size: 1.2rem; cursor: pointer; }
 #calendar-header button:hover { color: var(--primary-green); }
-#calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px;
-    text-align: center; }
-#calendar-grid div { padding: 5px; font-size: 0.9rem; border-radius: 50%; width: 30px; height: 30px; display: flex; justify-content: center;
-    align-items: center; cursor: pointer; transition: background-color 0.2s; }
-#calendar-grid .day-name { font-weight: bold; color: var(--primary-green); cursor: default;
-}
+#calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; }
+#calendar-grid div { padding: 5px; font-size: 0.9rem; border-radius: 50%; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: background-color 0.2s; }
+#calendar-grid .day-name { font-weight: bold; color: var(--primary-green); cursor: default; }
 #calendar-grid .day:hover { background-color: var(--tertiary-black); }
 #calendar-grid .today { border: 1px solid var(--primary-green); }
-#calendar-grid .selected { background-color: var(--primary-green); color: var(--primary-black);
-    font-weight: bold; }
+#calendar-grid .selected { background-color: var(--primary-green); color: var(--primary-black); font-weight: bold; }
 #calendar-grid .has-task { position: relative; }
 #calendar-grid .has-task::after {
     content: '';
@@ -310,10 +305,9 @@ h1, h2, h3 {
     border-radius: 50%;
     background-color: var(--primary-green);
 }
-#calendar-grid .selected.has-task::after { background-color: var(--primary-black);
-}
+#calendar-grid .selected.has-task::after { background-color: var(--primary-black); }
 
-/* Conquered Log Widget */
+/* --- NEW: Conquered Log Widget --- */
 .conquered-log-widget {
     background-color: var(--secondary-black);
     padding: 1rem;
@@ -324,7 +318,7 @@ h1, h2, h3 {
     list-style: none;
     max-height: 200px;
     overflow-y: auto;
-    padding-right: 10px;
+    padding-right: 10px; /* For scrollbar */
 }
 #conquered-log-list li {
     display: flex;
@@ -342,11 +336,12 @@ h1, h2, h3 {
 #conquered-log-list .fa-check {
     color: var(--primary-green);
 }
+/* Scrollbar for log */
 #conquered-log-list::-webkit-scrollbar { width: 5px; }
-#conquered-log-list::-webkit-scrollbar-track { background: var(--tertiary-black);
-}
+#conquered-log-list::-webkit-scrollbar-track { background: var(--tertiary-black); }
 #conquered-log-list::-webkit-scrollbar-thumb { background: var(--primary-green); border-radius: 5px;}
 #conquered-log-list::-webkit-scrollbar-thumb:hover { background: #39ff14c9; }
+
 
 /* Task Display */
 .task-display {
@@ -363,14 +358,16 @@ h1, h2, h3 {
     flex-wrap: wrap;
     gap: 1rem;
 }
+/* --- NEW: Smart Suggestion Button style --- */
 #smart-suggest-btn {
-    margin-left: auto;
+    margin-left: auto; /* Push to the left of the add task button */
 }
 #smart-suggest-btn .fa-wand-magic-sparkles {
     margin-right: 8px;
 }
 
-/* Progress Engine */
+
+/* --- NEW: Progress Engine --- */
 .progress-engine {
     margin-bottom: 1.5rem;
     display: flex;
@@ -387,7 +384,7 @@ h1, h2, h3 {
 }
 .progress-bar-fill {
     height: 100%;
-    width: 0%;
+    width: 0%; /* JS will update this */
     background-color: var(--primary-green);
     border-radius: 10px;
     transition: width 0.5s ease-in-out;
@@ -400,7 +397,7 @@ h1, h2, h3 {
     flex-shrink: 0;
 }
 
-/* Task Form */
+
 #task-form-container {
     display: flex;
     flex-direction: column;
@@ -452,15 +449,17 @@ input[type="date"] {
     padding: 5px;
     border-radius: 5px;
     font-family: inherit;
-    color-scheme: dark;
+    color-scheme: dark; /* Helps browsers render a dark-themed date picker */
 }
+/* ===== NEW: Style for calendar icon ===== */
 input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
-    filter: invert(0.8);
+    filter: invert(0.8); /* Inverts the color of the icon to make it light */
 }
 input[type="date"]::-webkit-calendar-picker-indicator:hover {
-    filter: invert(1);
+    filter: invert(1); /* Make it brighter on hover */
 }
+
 
 .form-actions {
     display: flex;
@@ -520,7 +519,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     padding: 0.8rem 0.5rem;
     border-bottom: 1px solid var(--border-color);
     transition: background-color 0.2s;
-    flex-wrap: wrap; /* Allow wrapping for mobile */
 }
 .task-item:last-child {
     border-bottom: none;
@@ -552,7 +550,8 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 .priority-tag.Low { background-color: #2a5a2a; color: #fff; }
 .priority-tag.Medium { background-color: #b09500; color: #000; }
-.priority-tag.High { background-color: #a02c2c; color: #fff; }
+.priority-tag.High { background-color: #a02c2c; color: #fff;
+}
 
 .task-item-right {
     display: flex;
@@ -624,111 +623,53 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     gap: 1rem;
 }
 
-/* --- RESPONSIVENESS (MOBILE INTERFACE) --- */
-
+/* --- RESPONSIVENESS --- */
 @media (max-width: 1024px) {
-    /* For smaller laptops and tablets */
     .main-grid {
         grid-template-columns: 240px 1fr;
     }
 }
 
-/* All major mobile changes happen below 768px */
 @media (max-width: 768px) {
-    body {
-        -webkit-text-size-adjust: 100%; /* Prevent font scaling on iOS */
+    /* Change grid to a single column for tablet/mobile */
+    .main-grid {
+        grid-template-columns: 1fr;
     }
-
-    .app-container {
-        padding: 1rem; /* Reduce padding on mobile */
+    /* Stack sidebar items vertically */
+    .sidebar {
+        flex-direction: column;
+        flex-wrap: nowrap;
     }
-
+    /* Make each sidebar widget take up the full width */
+    .list-manager, .calendar-widget, .conquered-log-widget {
+        flex-basis: 100%;
+        min-width: 0; /* Remove min-width to prevent overflow */
+    }
     .app-header {
-        flex-direction: column; /* Stack header items */
-        align-items: flex-start; /* Align to the left */
-        gap: 0.8rem;
+        justify-content: space-between;
     }
-
-    .app-header .logo {
-        font-size: 1.5rem;
-    }
-
-    .clock-widget {
-        font-size: 1.2rem;
-        order: 3; /* Move clock below logo */
-    }
-
     .search-container {
         width: 100%;
-        order: 2; /* Move search bar below logo */
+        order: 3;
     }
-    .search-container input {
-        width: 100%;
+    .welcome-container h1 {
+        font-size: 3rem;
     }
-
-    .main-grid {
-        grid-template-columns: 1fr; /* Single column layout */
-    }
-
-    .sidebar {
-        flex-direction: column; /* Stack all sidebar items vertically */
-        gap: 1.5rem;
-    }
-
-    .list-manager, .calendar-widget, .conquered-log-widget {
-        flex-basis: 100%; /* Each widget takes full width */
-    }
-
-    .task-display {
-        padding: 1.5rem; /* Reduce padding */
-    }
-
     .task-display-header {
         flex-direction: column;
         align-items: stretch;
     }
-
     #smart-suggest-btn {
         margin-left: 0;
         margin-bottom: 1rem;
-        width: 100%; /* Make buttons full-width */
     }
-    
-    #add-task-btn {
-        width: 100%;
-    }
+}
 
-    #task-form-container {
-        padding: 1rem;
-    }
-    
-    /* NEW: Stack task item details on mobile */
-    .task-item {
-        flex-direction: column;
-        align-items: flex-start; /* Align content to the left */
-        gap: 0.75rem; /* Add space between stacked items */
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
+/* Removed the (max-width: 580px) media query as its rules are now merged above */
 
-    .task-item-right {
-        width: 100%;
-        justify-content: space-between; /* Space out the details */
-        margin-top: 0.5rem;
-        gap: 10px;
-    }
-
-    .task-item-right .actions {
-        margin-left: auto; /* Push edit/delete buttons to the far right */
-    }
-
-    .welcome-container h1 {
-        font-size: 3rem;
-    }
-
+@media (max-width: 480px) {
     .task-meta {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1.5rem;
     }
 }
